@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import java.time.Duration;
 
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,8 +19,8 @@ public class LoginSteps
 	RegisterPage rp;
 	MyAccountPage map;
 	
-
-	@Given("user launch browser and navigate to home page")
+	
+	@Given("user Launch browser and navigate to home page")
 	public void user_launch_browser_and_navigate_to_home_page() 
 	{
 		driver=new ChromeDriver();
@@ -33,8 +34,9 @@ public class LoginSteps
 	{
 		 hp=new HomePage(driver);
 		 hp.clickSignLogin();
+	    
 	}
-	
+	   
 	@When("user enter email as {string} and password as {string} and click on login button")
 	public void user_enter_email_as_and_password_as_and_click_on_login_button(String loginemail, String loginpassword) 
 	{
