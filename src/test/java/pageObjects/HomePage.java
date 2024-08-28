@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,6 +33,11 @@ public class HomePage
 	@FindBy(xpath = "//a[@href='/products']")
 	WebElement lnkProducthome;
 	
+	//Elements Total Links
+	
+	@FindBy(tagName = "a")
+	List<WebElement> links;
+	
 	
 	//Action Method
 	
@@ -58,4 +65,23 @@ public class HomePage
 	{
 		lnkProducthome.click();
 	}
+	
+		
+	//Action Method Total Links
+		
+	public void noOfLinks()
+	{
+		System.out.println("Number of links present : "+links.size());
+		
+//		for(int i=0; i<=links.size(); i++)
+//		{
+//			System.out.println(links.get(i).getText()); 
+//		}
+		
+		for(WebElement lnks:links)
+		{
+			System.out.println(lnks.getAttribute("href"));
+		}
+	}
 }
+

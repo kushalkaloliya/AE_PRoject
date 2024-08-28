@@ -69,6 +69,29 @@ public class LoginSteps
 	    map.clickLogout();
 	    driver.close();
 	}
+	
+	
+	//Invalid Login Credential
+	
+	
+	@When("user enter invalid email as {string} and password as {string} and click on login button")
+	public void user_enter_invalid_email_as_and_password_as_and_click_on_login_button(String invalidEmail, String invalidPassword) 
+	{
+	   rp=new RegisterPage(driver);
+	   rp.setLoginEmail(invalidEmail);
+	   rp.setLoginPassword(invalidPassword);
+	   rp.clickLogin();
+	}
+	
+	@Then("user should not be redirected to the my account page")
+	public void user_should_not_be_redirected_to_the_my_account_page() throws InterruptedException
+	{
+		rp.loginInvalidDetails();
+		Thread.sleep(2000);
+		driver.close();
+	}
+
+
 
 
 	

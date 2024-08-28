@@ -38,6 +38,10 @@ public class RegisterPage
 	@FindBy(xpath = "//button[normalize-space()='Login']")
 	WebElement btnLogin;
 	
+	@FindBy(xpath = "//p[normalize-space()='Your email or password is incorrect!']")
+	WebElement msgInvalidLoginDetails;
+	
+	
 	
 	//Account Information
 	
@@ -181,6 +185,11 @@ public class RegisterPage
 	public void clickLogin()
 	{
 		btnLogin.click();
+	}
+	
+	public void loginInvalidDetails()
+	{
+		System.out.println(msgInvalidLoginDetails.getText());
 	}
 	
 	
