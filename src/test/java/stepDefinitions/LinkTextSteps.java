@@ -36,6 +36,24 @@ public class LinkTextSteps
 		Thread.sleep(3000);
 	    driver.close();
 	}
+	
+	// Click on a particular product
+	
+
+	@When("capture products from the left side bar")
+	public void capture_products_from_the_left_side_bar() 
+	{
+	    hp=new HomePage(driver);
+	    hp.noOfProducts();
+	}
+	
+	@When("click on a particular product")
+	public void click_on_a_particular_product() throws InterruptedException 
+	{
+		Thread.sleep(2000);
+	    hp.clickBrandProducts();
+	    driver.close();
+	}
 
 
 

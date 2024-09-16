@@ -2,14 +2,17 @@ package pageObjects;
 
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage 
 {
 	WebDriver driver;
+	WebDriverWait wait;
 	public HomePage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -38,6 +41,12 @@ public class HomePage
 	@FindBy(tagName = "a")
 	List<WebElement> links;
 	
+	//Elements - click on 1 product
+	@FindBy(xpath = "//div[@class='brands_products']//a[@href]")
+	List<WebElement> brandProducts;
+	
+//	@FindBy(xpath = "//div[@class='productinfo text-center']//p[contains(text(),'Men Tshirt')]")
+//	WebElement confirmBrandName;
 	
 	//Action Method
 	
@@ -83,5 +92,30 @@ public class HomePage
 			System.out.println(lnks.getAttribute("href"));
 		}
 	}
+	
+	//Action Method - click on 1 product
+	
+	public void noOfProducts()
+	{
+		for(WebElement product:brandProducts)
+		{
+			System.out.println(product.getText());
+		}
+
+	}
+	
+	public void clickBrandProducts()
+	{
+		for(WebElement pro:brandProducts)
+		{
+			if(pro.getText().contains("H&M"))
+			{
+				JavascriptExecutor js=(JavascriptExecutor)driver;
+				js.executeScript("arguments[0].click();", pro);
+//				pro.click();
+			}
+		}
+	}
+	
 }
 

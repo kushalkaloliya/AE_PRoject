@@ -11,7 +11,8 @@ import io.cucumber.junit.CucumberOptions;
 //						features = {".//Features/Login.feature"},
 //						features = {".//Features/LinkText.feature"},
 //						features = {".//Features/ContactUs.feature"},
-						features = {".//Features/Products.feature"},
+//						features = {".//Features/Products.feature"},
+						features = {".//Features/DropDown.feature"},
 						glue = "stepDefinitions",
 						dryRun = false
 		
